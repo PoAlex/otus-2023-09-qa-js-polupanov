@@ -1,4 +1,4 @@
-function kolobok(namePerson) {
+function kolobok(namePerson1) {
     switch (namePerson) {
         case 'дедушка':
             console.log("Я от дедушки ушел")
@@ -14,12 +14,7 @@ function kolobok(namePerson) {
     }
 }
 
-function newYear(name) {
-    console.log(`${name}! ${name}! ${name}!`)
+function newYear(namePerson2) {
+    console.log(`${namePerson2}! ${namePerson2}! ${namePerson2}!`)
 }
-
-// Функция возвращает: "Дед Мороз! Дед Мороз! Дед Мороз!" или "Снегурочка! Снегурочка! Снегурочка!";
-
-newYear('Дед Мороз')
-newYear('Снегурочка')
 
