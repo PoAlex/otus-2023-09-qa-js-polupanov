@@ -1,0 +1,22 @@
+{
+  "name": "otus-2023-09-qa-js-polupanov",
+  "version": "1.0.0",
+  "description": "Создано в рамках курса OTUS JavaScript QA Engineer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PoAlex/otus-2023-09-qa-js-polupanov.git"
+  },
+  "author": "Polupanov Alexey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PoAlex/otus-2023-09-qa-js-polupanov/issues"
+  },
+  "homepage": "https://github.com/PoAlex/otus-2023-09-qa-js-polupanov#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
