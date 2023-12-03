@@ -16,7 +16,15 @@
   },
   "homepage": "https://github.com/PoAlex/otus-2023-09-qa-js-polupanov#readme",
   "devDependencies": {
-    "@playwright/test": "^1.39.0",
-    "@types/node": "^20.8.10"
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.8.10",
+    "eslint": "^8.54.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }
