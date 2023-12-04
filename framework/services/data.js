@@ -15,5 +15,8 @@ export const requestData = {
   },
   DeleteCurentUserData: {
     password: `${process.env.PASSWORD}`
+  },
+  ConfirmDeleteCurentUserData: {
+    token: `${process.env.TOKEN}`
   }
 }
