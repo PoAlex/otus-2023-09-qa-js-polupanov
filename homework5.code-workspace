@@ -4,7 +4,12 @@
 			"path": "."
 		}
 	],
-	"settings": {},
+	"settings": {
+		"vsintellicode.features.python.deepLearning": "enabled",
+		"javascript.format.enable": false,
+		"eslint.format.enable": true,
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
 	"extensions": {
 		"recommendations": [
 			"ms-playwright.playwright"

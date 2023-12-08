@@ -1,46 +1,48 @@
 const { test, expect } = require('@playwright/test')
-const { APIroutes } = require('../framework/services/routes')
 const { requestData } = require('../framework/services/data')
 const { safeToken } = require('../framework/fixtures/safeToken')
-const { requestHeaders } = require('../framework/services/headers')
+const { AuthService } = require('../framework/services/auth')
+const { UserService } = require('../framework/services/user')
 
-test.skip('Creates a new user account', async ({ request }) => {
-  const response = await request.post(APIroutes.CreateAccount, {
-    data: requestData.CreateAccountData
-  })
-  expect(response.status()).toBe(200)
-})
+test.describe.configure({ mode: 'serial' })
 
-test.describe('API tests', async () => {
-  test('Logs a user in', async ({ request }) => {
-    await test.step('Send request', async () => {
-      const response = await request.post(APIroutes.Login, {
-        headers: requestHeaders.LogIn,
-        data: requestData.LoginData
-      })
-      expect(response.status()).toBe(200)
-      safeToken(response)
-    })
-  })
+test.describe('', async () => {
+  test.skip('Creates a new user account', async ({ request }) => {
+    const authService = AuthService(request)
+    const response = await authService.createAccount(requestData.CreateAccountData)
 
-  test('Get user information', async ({ request }) => {
-    const response = await request.get(APIroutes.GetUserInfo, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `${process.env.TOKEN}`
-      }
-    })
     expect(response.status()).toBe(200)
   })
 
-  test('Requests the deletion of the current user', async ({ request }) => {
-    const response = await request.post(APIroutes.DeleteCurentUser, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `${process.env.TOKEN}`
-      },
-      data: requestData.DeleteCurentUserData
-    })
+  test('Logs a user in', async ({ request }) => {
+    const authService = AuthService(request)
+    const response = await authService.login(requestData.LoginData)
+    safeToken(response)
+
+    expect(response.status()).toBe(200)
+  })
+
+  test('Get user information', async ({ request }) => {
+    const userService = UserService(request)
+    const response = await userService.getUserInfo()
+
+    expect(response.status()).toBe(200)
+
+    const responseBody = await response.json()
+    console.log(responseBody)
+  })
+
+  test('Request the deletion of the user', async ({ request }) => {
+    const userService = UserService(request)
+    const response = await userService.deleteCurentUser(requestData.DeleteCurentUserData)
+
+    expect(response.status()).toBe(200)
+  })
+
+  test('Confirm a user deletion request', async ({ request }) => {
+    const userService = UserService(request)
+    const response = await userService.confirmDeleteCurentUser(requestData.ConfirmDeleteCurentUserData)
+
     expect(response.status()).toBe(200)
   })
 })

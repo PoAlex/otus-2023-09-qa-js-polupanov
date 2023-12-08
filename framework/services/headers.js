@@ -2,7 +2,7 @@
 
 export const requestHeaders = {
   LogIn: {
-    Authorization: `${process.env.TOKEN}`,
-    Accept: 'application/json'
+    Accept: 'application/json',
+    Authorization: `${process.env.TOKEN}`
   }
 }

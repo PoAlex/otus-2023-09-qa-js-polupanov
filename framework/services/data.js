@@ -10,7 +10,7 @@ export const requestData = {
   LoginData: {
     long_token: true,
     password: `${process.env.PASSWORD}`,
-    totp_passcode: '',
+    totp_passcode: 'string',
     username: `${process.env.USERNAME}`
   },
   DeleteCurentUserData: {
