@@ -1,8 +1,8 @@
 const { test, expect } = require('@playwright/test')
-const { requestData } = require('../framework/services/data')
-const { safeToken } = require('../framework/fixtures/safeToken')
-const { AuthService } = require('../framework/services/auth')
-const { UserService } = require('../framework/services/user')
+const { requestData } = require('../../framework/services/data')
+const { safeToken } = require('../../framework/fixtures/safeToken')
+const { AuthService } = require('../../framework/services/auth')
+const { UserService } = require('../../framework/services/user')
 
 test.describe.configure({ mode: 'serial' })
 
@@ -43,6 +43,6 @@ test.describe('', async () => {
     const userService = UserService(request)
     const response = await userService.confirmDeleteCurentUser(requestData.ConfirmDeleteCurentUserData)
 
-    expect(response.status()).toBe(200)
+    expect(response.status()).toBe(204)
   })
 })

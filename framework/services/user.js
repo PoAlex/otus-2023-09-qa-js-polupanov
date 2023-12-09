@@ -27,12 +27,13 @@ export const UserService = (request) => {
 
   const confirmDeleteCurentUser = async (token) => {
     const response = await request.post(APIroutes.ConfirmDeleteCurentUser, {
-      // headers: {
-      //   Accept: 'application/json',
-      //   Authorization: `Bearer ${process.env.TOKEN}`
-      //   // Authorization: `${process.env.TOKEN}`
-      // },
-      data: token
+      headers: {
+        Accept: 'application/json',
+        // Authorization: `${process.env.TOKEN}`
+        Authorization: `Bearer ${process.env.TOKEN}`
+      },
+      data: { token: `${process.env.TOKEN}` }
+      // data: token
     })
     return response
   }

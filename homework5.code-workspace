@@ -5,10 +5,13 @@
 		}
 	],
 	"settings": {
-		"vsintellicode.features.python.deepLearning": "enabled",
 		"javascript.format.enable": false,
 		"eslint.format.enable": true,
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.fontSize": 14,
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.formatOnType": true
 	},
 	"extensions": {
 		"recommendations": [
