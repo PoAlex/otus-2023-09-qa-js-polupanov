@@ -1,11 +1,14 @@
 /** API роуты */
 
-const baseURL = process.env.BASE_API_URL
+const { config } = require('../config/config')
+
+const url = config.url
 
 export const APIroutes = {
-  CreateAccount: `${baseURL}/register`,
-  Login: `${baseURL}/login`,
-  DeleteCurentUser: `${baseURL}/user/deletion/request`,
-  ConfirmDeleteCurentUser: `${baseURL}/user/deletion/confirm`,
-  GetUserInfo: `${baseURL}/user`
+  // BookStore
+  User: `${url}`,
+  Authorized: `${url}/Account/v1/Authorized`,
+  GenerateToken: `${url}/Account/v1/GenerateToken`,
+  Books: `${url}/BookStore/v1/Books`,
+  Book: `${url}/BookStore/v1/Book`
 }

@@ -5,13 +5,19 @@
 		}
 	],
 	"settings": {
-		"javascript.format.enable": false,
 		"eslint.format.enable": true,
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"editor.fontSize": 14,
 		"editor.formatOnSave": true,
 		"editor.formatOnPaste": true,
-		"editor.formatOnType": true
+		"editor.formatOnType": true,
+		"javascript.format.enable": false,
+		"typescript.format.enable": false,
+		"editor.scrollbar.vertical": "hidden",
+		"editor.scrollbar.horizontal": "hidden",
+		"editor.cursorSmoothCaretAnimation": "on",
+		"editor.cursorBlinking": "smooth",
+		"files.autoSave": "onFocusChange"
 	},
 	"extensions": {
 		"recommendations": [

@@ -1,22 +1,26 @@
 /** Body для запросов */
 
+const { config } = require('../config/config')
+
 export const requestData = {
-  CreateAccountData: {
-    email: `${process.env.EMAIL}`,
-    id: 0,
-    password: `${process.env.PASSWORD}`,
-    username: `${process.env.USERNAME}`
+  // BookStore
+  Data: {
+    userName: `${config.credentials.userName}`,
+    password: `${config.credentials.password}`
   },
-  LoginData: {
-    long_token: true,
-    password: `${process.env.PASSWORD}`,
-    totp_passcode: 'string',
-    username: `${process.env.USERNAME}`
+  addBooks: {
+    userId: `${config.userID}`,
+    collectionOfIsbns: [
+      {
+        isbn: '9781449325862'
+      }
+    ]
   },
-  DeleteCurentUserData: {
-    password: `${process.env.PASSWORD}`
+  Params: {
+    ISBN: '9781449325862'
   },
-  ConfirmDeleteCurentUserData: {
-    token: `${process.env.TOKEN}`
+  deleteBookData: {
+    isbn: '9781449325862',
+    userId: '1fc24928-f9ae-4abb-8ab5-013da37f0bc5'
   }
 }
