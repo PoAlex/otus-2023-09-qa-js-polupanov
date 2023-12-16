@@ -16,6 +16,7 @@
 		"editor.scrollbar.vertical": "hidden",
 		"editor.scrollbar.horizontal": "hidden",
 		"editor.cursorSmoothCaretAnimation": "on",
+		"editor.smoothScrolling": true,
 		"editor.cursorBlinking": "smooth",
 		"files.autoSave": "onFocusChange"
 	},
