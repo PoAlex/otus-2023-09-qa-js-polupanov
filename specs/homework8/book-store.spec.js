@@ -1,8 +1,8 @@
 const { test, expect } = require('@playwright/test')
 const { BookStore } = require('../../framework/services/BookStore')
 const { requestData } = require('../../framework/services/data')
-// const { config } = require('../../framework/config/config')
 const { safeToken } = require('../../framework/fixtures/safeToken')
+const isbns = require('../../framework/fixtures/getISBN')
 
 /** Регистрация нового пользователя. Из ответа забираем userID
 test('User', async ({ request }) => {
@@ -25,7 +25,7 @@ test.describe.configure({ mode: 'serial' })
 test.describe('BookStore', async () => {
   test.beforeAll('GenerateToken', async ({ request }) => {
     const bookStore = BookStore(request)
-    const response = await bookStore.generateToken(requestData.Data)
+    const response = await bookStore.generateToken()
 
     expect(response.status()).toBe(200)
 
@@ -40,31 +40,33 @@ test.describe('BookStore', async () => {
     console.log(await response.json())
   })
 
-  test('Add books', async ({ request }) => {
-    const bookStore = BookStore(request)
-    const response = await bookStore.addBooks(requestData.addBooks)
+  for (const isbn of isbns) {
+    test(`Add books ${isbn}`, async ({ request }) => {
+      const bookStore = BookStore(request)
+      const response = await bookStore.addBooks(isbn)
 
-    try {
       expect(response.status()).toBe(201)
       console.log(await response.json())
-    } catch (error) {
+    })
+  }
+
+  for (const isbn of isbns) {
+    test(`GetBookInfo ${isbn}`, async ({ request }) => {
+      const bookStore = BookStore(request)
+      const response = await bookStore.bookInfo(isbn)
+
+      expect(response.status()).toBe(200)
       console.log(await response.json())
-    }
-  })
+    })
+  }
 
-  test('GetBookInfo', async ({ request }) => {
-    const bookStore = BookStore(request)
-    const response = await bookStore.bookInfo(requestData.Params)
+  for (const isbn of isbns) {
+    test(`Delete book ${isbn}`, async ({ request }) => {
+      const bookStore = BookStore(request)
+      const response = await bookStore.deleteBook(isbn)
 
-    expect(response.status()).toBe(200)
-    console.log(await response.json())
-  })
-
-  test('Delete book', async ({ request }) => {
-    const bookStore = BookStore(request)
-    const response = await bookStore.deleteBook(requestData.deleteBookData)
-
-    expect(response.status()).toBe(204)
-    console.log(await response.headers())
-  })
+      expect(response.status()).toBe(204)
+      console.log(await response.headers())
+    })
+  }
 })

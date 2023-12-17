@@ -4,7 +4,7 @@ const { config } = require('../config/config')
 
 const url = config.url
 
-export const APIroutes = {
+const APIroutes = {
   // BookStore
   User: `${url}`,
   Authorized: `${url}/Account/v1/Authorized`,
@@ -12,3 +12,5 @@ export const APIroutes = {
   Books: `${url}/BookStore/v1/Books`,
   Book: `${url}/BookStore/v1/Book`
 }
+
+module.exports = { APIroutes }

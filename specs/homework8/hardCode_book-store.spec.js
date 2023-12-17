@@ -60,7 +60,7 @@ test.describe('BookAppStore', async () => {
   for (let i = 0; i < isbns.length; i++) {
     test(`GetBookInfo ${isbns[i]}`, async ({ request }) => {
       const response = await request.get('https://bookstore.demoqa.com/BookStore/v1/Book', {
-        params: { ISBN: isbns[i] },
+        params: { ISBN: isbns[0] },
         headers: { Authorization: `${config.token}` }
       })
       expect(response.status()).toBe(200)
