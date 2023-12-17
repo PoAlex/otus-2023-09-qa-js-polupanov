@@ -4,7 +4,7 @@ const { requestData } = require('../../framework/services/data')
 // const { config } = require('../../framework/config/config')
 const { safeToken } = require('../../framework/fixtures/safeToken')
 
-/**
+/** Регистрация нового пользователя. Из ответа забираем userID
 test('User', async ({ request }) => {
   const response = await request.post('https://bookstore.demoqa.com/Account/v1/User', {
     data: {
@@ -23,22 +23,21 @@ test('User', async ({ request }) => {
 test.describe.configure({ mode: 'serial' })
 
 test.describe('BookStore', async () => {
+  test.beforeAll('GenerateToken', async ({ request }) => {
+    const bookStore = BookStore(request)
+    const response = await bookStore.generateToken(requestData.Data)
+
+    expect(response.status()).toBe(200)
+
+    safeToken(response)
+  })
+
   test('Authorized', async ({ request }) => {
     const bookStore = BookStore(request)
     const response = await bookStore.authorized(requestData.Data)
 
     expect(response.status()).toBe(200)
     console.log(await response.json())
-  })
-
-  test('GenerateToken', async ({ request }) => {
-    const bookStore = BookStore(request)
-    const response = await bookStore.generateToken(requestData.Data)
-
-    expect(response.status()).toBe(200)
-    console.log(await response.json())
-
-    safeToken(response)
   })
 
   test('Add books', async ({ request }) => {
