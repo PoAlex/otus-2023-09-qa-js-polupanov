@@ -10,5 +10,3 @@ function listIsbn () {
 }
 
 module.exports = listIsbn()
-// console.log(element)
-// export default element
