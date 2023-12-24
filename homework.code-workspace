@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"eslint.format.enable": true,
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.fontSize": 14,
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.formatOnType": false,
+		"javascript.format.enable": true,
+		"typescript.format.enable": false,
+		"editor.scrollbar.vertical": "hidden",
+		"editor.scrollbar.horizontal": "hidden",
+		"editor.cursorSmoothCaretAnimation": "on",
+		"editor.smoothScrolling": true,
+		"editor.cursorBlinking": "smooth",
+		"files.autoSave": "onFocusChange"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-playwright.playwright"
+		]
+	}
+}

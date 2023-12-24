@@ -1,0 +1,31 @@
+{
+  "name": "otus-2023-09-qa-js-polupanov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PoAlex/otus-2023-09-qa-js-polupanov.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PoAlex/otus-2023-09-qa-js-polupanov/issues"
+  },
+  "homepage": "https://github.com/PoAlex/otus-2023-09-qa-js-polupanov#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.8.10",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.3",
+    "dotenv": "^16.3.1"
+  }
+}
